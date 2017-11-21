@@ -5,6 +5,11 @@ module.exports = {
     ORDERPAGE:{
         CHOOSEFOOD:'选餐桌号',
         CHOOSEFOODCLASS:'选餐类别',
+        NOTENOUGH:'余量不足菜品',
+        FOODSNUMBER:'菜品数量改变',
+        FOODSTABS:'选项卡',
+        TABLESNUM:'桌号生成',
+        DELETEFOODS:'删除'
     },
     ORDERINFO:{
         MAIN_TABLE:'订单表',

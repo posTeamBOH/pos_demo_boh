@@ -9,7 +9,16 @@ import {FoodSearch,AddFoods} from '../../action/action'
 const {TextArea} = Input;
 const FormItem = Form.Item;
 class Search extends Component {
-    state = {visible: false}
+    constructor(props) {
+        super(props);
+        this.state = {
+            visible: false,
+            foodName:'',
+            beginTime:'',
+            endTime:''
+        }
+    }
+
     showModal = () => {
         this.setState({
             visible: true,
@@ -19,7 +28,8 @@ class Search extends Component {
             AfoodWord:'',
             AddFoodSize:'',
             AddFoodCL:'',
-            AddFoodMark:''
+            AddFoodMark:'',
+
         });
     }
     onBegin = (date, dateString) => {
@@ -31,20 +41,10 @@ class Search extends Component {
     foodNameCheck = event => {
         this.setState({foodName: event.target.value});
     }
-
-
-
-
-
-
-    foodNameCheck = event => {
-        this.setState({foodName: event.target.value});
-    }
     Check=()=>{
         let {FoodSearch}=this.props;
         //查询字符
         FoodSearch(this.state.foodName,this.state.beginTime,this.state.endTime);
-
     }
 
 
@@ -89,8 +89,7 @@ class Search extends Component {
             AddFoodMark:''
         });
         let {AddFoods}=this.props;
-        AddFoods(this.state.AddFoodName,this.state.AddfoodClass,this.state.AFoodPrice,this.state.AfoodWord,this.state.AddFoodSize,this.state.AddFoodCL,this.state.AddFoodMark);
-       console.log(this.state)
+        AddFoods(this.state.AfoodName,this.state.AddfoodClass,this.state.AFoodPrice,this.state.AfoodWord,this.state.AddFoodSize,this.state.AddFoodCL,this.state.AddFoodMark);
 
     }
     componentWillReceiveProps() {
@@ -107,11 +106,11 @@ class Search extends Component {
         </span>
                 <span className="secondinput">
         <span>上架时间</span>
-        <DatePicker format="YYYY-MM-DD HH:mm:ss" onChange={this.onBegin}/>
+        <DatePicker format="YYYY-MM-DD" onChange={this.onBegin}/>
         </span>
                 <span className="secondinput thirdinput">
         <span>至</span>
-        <DatePicker format="YYYY-MM-DD HH:mm:ss" onChange={this.onEnd}/>
+        <DatePicker format="YYYY-MM-DD" onChange={this.onEnd}/>
         </span>
                 <span className="searchButton">
 
@@ -168,7 +167,7 @@ class Search extends Component {
     }
 }
 const propertys = state => {
-    return {store:state.rootData.foodTale.pageData}
+    return {store:state.rootData.RouterData.pageData}
 }
 
 Search = connect(propertys,{FoodSearch,AddFoods})(Search)

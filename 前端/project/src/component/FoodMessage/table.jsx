@@ -8,12 +8,6 @@ class Table extends Component {
         this.state = {
         }
      }
-    componentWillReceiveProps() {
-    }
-
-    componentDidMount() {
-    }
-
     render() {
         return (
             <div className="toptable">

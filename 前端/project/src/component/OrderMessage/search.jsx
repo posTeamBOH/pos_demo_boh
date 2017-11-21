@@ -62,7 +62,7 @@ class Search extends Component {
 }
 
 const propertys = state => {
-    return {store:state.rootData.mainTable.pageData}
+    return {store:state.rootData.RouterData.pageData}
 }
 
 Search = connect(propertys,{OrderSearch})(Search)

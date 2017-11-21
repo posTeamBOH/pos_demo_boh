@@ -159,7 +159,7 @@ class Tables extends Component {
     }
 }
 const propertys = state => {
-    return {storeTest:state.rootData.mainTable.pageData}
+    return {storeTest:state.rootData.RouterData.pageData}
 }
 
 Tables = connect(propertys,{main_Table,OrderAllTable})(Tables)
